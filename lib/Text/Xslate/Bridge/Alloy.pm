@@ -40,7 +40,7 @@ This document describes Text::Xslate::Bridge::Alloy version 1.0000.
 
 =head1 DESCRIPTION
 
-Text::Xslate::Bridge::Alloy provides Xslate with Template::Alloy virutla methods.
+Text::Xslate::Bridge::Alloy provides Xslate with Template::Alloy virtual methods.
 
 =head1 INTERFACE
 
