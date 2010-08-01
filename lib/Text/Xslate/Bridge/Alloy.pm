@@ -4,7 +4,7 @@ use 5.008_001;
 use strict;
 use warnings;
 
-our $VERSION = '1.0000';
+our $VERSION = '1.0001';
 
 use parent qw(Text::Xslate::Bridge);
 
@@ -26,14 +26,14 @@ Text::Xslate::Bridge::Alloy - Template::Alloy virtual methods for Xslate
 
 =head1 VERSION
 
-This document describes Text::Xslate::Bridge::Alloy version 1.0000.
+This document describes Text::Xslate::Bridge::Alloy version 1.0001.
 
 =head1 SYNOPSIS
 
     use Text::Xslate::Bridge::Alloy;
 
     my $xslate = Text::Xslate->new(
-        function => { Text::Xslate::Bridge::Alloy->methods },
+        module => [ 'Text::Xslate::Bridge::Alloy' ],
     );
 
     print $xslate->render_string('<: "foo".length() :>'); # => 3
@@ -41,6 +41,10 @@ This document describes Text::Xslate::Bridge::Alloy version 1.0000.
 =head1 DESCRIPTION
 
 Text::Xslate::Bridge::Alloy provides Xslate with Template::Alloy virtual methods.
+
+Note that Template::Alloy does not distinguish methods and filters. That is,
+C<< expr | foo >> is the same as C<< expr.foo() >>. This module exports
+all the features as methods, so you must use the latter syntax even for filters.
 
 =head1 INTERFACE
 
@@ -63,6 +67,8 @@ to cpan-RT.
 L<Text::Xslate>
 
 L<Template::Alloy>
+
+L<Template::Alloy::VMethod>
 
 =head1 AUTHOR
 
